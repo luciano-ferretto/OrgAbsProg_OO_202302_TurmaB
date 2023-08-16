@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 
-abstract class Veiculo {
+class Veiculo {
     public static int contador = 0;
     private String marca;
     private String modelo;

@@ -1,16 +1,53 @@
 import java.time.LocalDate;
 
 public class Veiculo {
-    String marca;
-    String modelo;
-    int ano;
+    public static int contador = 0;
+    private String marca;
+    private String modelo;
+    private int ano;
 
-    Veiculo(String marca, String modelo, int ano){
-        this.ano = ano;
-        this.marca = marca;
-        this.modelo = modelo;
+    public String toString() {
+        return "Marca: " + this.marca
+               + ", Modelo: " + this.modelo
+               + ", Ano: " + this.ano;
     }
 
+
+
+
+    public String getMarca() {
+        return marca;
+    }
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+    public String getModelo() {
+        return modelo;
+    }
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+    public int getAno() {
+        return ano;
+    }
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+    Veiculo() {
+        
+    }
+    Veiculo(String marca) {
+        this(marca, "Modelo não definido");
+    }
+    Veiculo(String marca, String modelo) {
+        this(marca, modelo, -1);
+    }
+    public Veiculo(String marca, String modelo, int ano) {
+        this.marca = marca;
+        this.modelo = modelo;
+        this.ano = ano;
+        contador++;
+    }
     Veiculo criarCopiaAPartirDeMim() {
         //Veiculo copia = new Veiculo();
         //copia.marca = this.marca;
@@ -21,9 +58,8 @@ public class Veiculo {
     }
 
     int calcularTempoUso() {
-        
+        return this.calcularTempoUso(LocalDate.now().getYear());
     }
-
     int calcularTempoUso(int anoBase) {
         int tempoUso = anoBase - this.ano;
         return tempoUso;
