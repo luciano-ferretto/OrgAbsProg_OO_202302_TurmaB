@@ -14,6 +14,7 @@ public class ExemploForTradicional03 {
                O loop ficará ativo enquanto esse caracter extraído for diferente de 'S',
                    observe que o Java é Case-Sensitive
         */
+        
 		for (int i = 1; scan.next().charAt(0) != 'S'; i++) {
 			System.out.println("Já passou "+ i + " vezes");
        	}
