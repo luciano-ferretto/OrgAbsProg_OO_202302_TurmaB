@@ -1,5 +1,11 @@
 public class Retangulo extends FormaGeometrica{
 
+    
+    @Override
+    public String toString() {
+        return "Retangulo: Cor " + this.getCor();
+    }
+
     public Retangulo(String cor, double medida01, double medida02) {
         super(cor, medida01);
         this.medida02 = medida02;

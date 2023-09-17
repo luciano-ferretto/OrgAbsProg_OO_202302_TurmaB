@@ -1,11 +1,24 @@
 import java.util.Scanner;
 
 public class AppCalcula {
+    public static void imprimeToStringMaiusculo(Object objeto) {
+        System.out.println(objeto.toString().toUpperCase());
+    }
+
     public static void imprimeArea(FormaGeometrica forma) {
         System.out.println(forma.calcularArea());
     }
 
     public static void main(String[] args) {
+        TesteConfig teste;
+        Object varObject = new Object();
+        Retangulo varRetangulo = (Retangulo) varObject;
+
+        Retangulo ret1 = new Retangulo("ddd", 0, 0);
+        imprimeToStringMaiusculo(ret1);
+        Quadrado quad1 = new Quadrado("cor qualquer", 0);
+        imprimeToStringMaiusculo(quad1);
+        
         Scanner scan = new Scanner(System.in);
         String mensagemInicial = """
                 --------------------------------------
