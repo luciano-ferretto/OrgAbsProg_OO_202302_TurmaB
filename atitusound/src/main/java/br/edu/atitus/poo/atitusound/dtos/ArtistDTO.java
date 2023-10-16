@@ -1,22 +1,10 @@
-package br.edu.atitus.poo.atitusound.entities;
+package br.edu.atitus.poo.atitusound.dtos;
 
-import java.util.UUID;
-
-public class ArtistEntity {
-	
-	private UUID uuid;
+public class ArtistDTO {
 	
 	private String name;
 	
 	private String image;
-
-	public UUID getUuid() {
-		return uuid;
-	}
-
-	public void setUuid(UUID uuid) {
-		this.uuid = uuid;
-	}
 
 	public String getName() {
 		return name;
@@ -34,6 +22,4 @@ public class ArtistEntity {
 		this.image = image;
 	}
 
-	
-	
 }
