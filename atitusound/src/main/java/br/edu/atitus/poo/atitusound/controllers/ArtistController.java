@@ -15,11 +15,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.atitus.poo.atitusound.dtos.ArtistDTO;
 import br.edu.atitus.poo.atitusound.entities.ArtistEntity;
+import br.edu.atitus.poo.atitusound.services.ArtistService;
+import br.edu.atitus.poo.atitusound.servicesimpl.ArtistServiceImpl;
 
 @RestController
 @RequestMapping("/artists")
 public class ArtistController {
+	//Possui uma dependência do tipo ArtistService
+	private final ArtistService service;
 	
+	public ArtistController(ArtistService service) {
+		super();
+		this.service = service;
+	}
+
 	private ArtistEntity convertDTO2Entity(ArtistDTO dto) {
 		ArtistEntity newArtist = new ArtistEntity();
 		newArtist.setName(dto.getName());
@@ -30,7 +39,11 @@ public class ArtistController {
 	@PostMapping
 	public ResponseEntity<ArtistEntity> salvar(@RequestBody ArtistDTO artist) {
 		ArtistEntity newArtist = convertDTO2Entity(artist);
-		//TODO invocar método salvar da Service Artist
+		try {
+			service.save(newArtist);
+		} catch (Exception e) {
+			return ResponseEntity.badRequest().header("error", e.getMessage()).build();
+		}
 		return ResponseEntity.status(HttpStatus.CREATED).body(newArtist);
 	}
 	

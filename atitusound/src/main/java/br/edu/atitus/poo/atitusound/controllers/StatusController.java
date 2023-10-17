@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.edu.atitus.poo.atitusound.entities.ArtistEntity;
 
 @RestController
 @RequestMapping("status")
@@ -21,7 +20,7 @@ public class StatusController {
 	
 	//Exemplo do método HTTP POST
 	@PostMapping
-	public ResponseEntity<String> postStatus(@RequestBody ArtistEntity entrada) {
+	public ResponseEntity<String> postStatus(@RequestBody String entrada) {
 		System.out.println(entrada);
 		return ResponseEntity.status(HttpStatus.CREATED).body("Objeto criado");
 	}
