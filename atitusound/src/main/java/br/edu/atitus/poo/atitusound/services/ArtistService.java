@@ -19,5 +19,6 @@ public interface ArtistService {
 	
 	Optional<ArtistEntity> findById(UUID uuid);
 	
+	void deleteById(UUID uuid) throws Exception;
 
 }
